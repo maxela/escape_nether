@@ -78,6 +78,7 @@ minetest.register_craftitem("escape_nether:portal_wand", {
 		local x, y, z = user:getpos().x, user:getpos().y+1, user:getpos().z
 		if escape_nether.check_space_for_portal(x, y, z) then
 			escape_nether.build_portal(x, y, z)
+			user:setpos({x, y, z})
 		end
 	end
 })
