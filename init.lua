@@ -14,7 +14,7 @@ escape_nether.check_space_for_portal = function(x, y, z)
 	end
 	for i = -1,1,1 do
 		for j = -1,1,1 do
-			if minetest.get_node({x=x+i, y=y+5, z=z+j}).name ~= "air" then
+			if minetest.get_node({x=x+i, y=y+4, z=z+j}).name ~= "air" then
 				return false
 			end
 		end
@@ -75,7 +75,7 @@ minetest.register_craftitem("escape_nether:portal_wand", {
 	description = "Portal builder wand",
 	inventory_image = "portal_wand.png",
 	on_use = function(itemstack, user, pointed_thing)
-		local x, y, z = user:getpos().x, user:getpos().y+1, user:getpos().z
+		local x, y, z = user:getpos().x, math.ceil(user:getpos().y)+1, user:getpos().z
 		if escape_nether.check_space_for_portal(x, y, z) then
 			escape_nether.build_portal(x, y, z)
 			user:setpos({x=x, y=y, z=z})
