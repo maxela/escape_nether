@@ -103,35 +103,35 @@ end
 
 escape_nether.remove_portal = function(x, y, z)
 	for _,i in ipairs({-1, 3}) do
-		minetest.add_node({x=x, y=y+i, z=z}, {name="air"})
+		minetest.remove_node({x=x, y=y+i, z=z})
 	end
 	for _,sn in ipairs(vector.square(1)) do
-		minetest.add_node({x=x+sn[1], y=y-1, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x-sn[1], y=y-1, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x+sn[1], y=y+3, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x-sn[1], y=y+3, z=z+sn[2]}, {name="air"})
+		minetest.remove_node({x=x+sn[1], y=y-1, z=z+sn[2]})
+		minetest.remove_node({x=x-sn[1], y=y-1, z=z+sn[2]})
+		minetest.remove_node({x=x+sn[1], y=y+3, z=z+sn[2]})
+		minetest.remove_node({x=x-sn[1], y=y+3, z=z+sn[2]})
 	end
 	for _,sn in ipairs(vector.square(2)) do
-		minetest.add_node({x=x+sn[1], y=y-1, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x-sn[1], y=y-1, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x+sn[1], y=y+3, z=z+sn[2]}, {name="air"})
-		minetest.add_node({x=x-sn[1], y=y+3, z=z+sn[2]}, {name="air"})
+		minetest.remove_node({x=x+sn[1], y=y-1, z=z+sn[2]})
+		minetest.remove_node({x=x-sn[1], y=y-1, z=z+sn[2]})
+		minetest.remove_node({x=x+sn[1], y=y+3, z=z+sn[2]})
+		minetest.remove_node({x=x-sn[1], y=y+3, z=z+sn[2]})
 	end
 	for i = -1,1,2 do
 		for j = -1,1,2 do
-			minetest.add_node({x=x+i, y=y+2, z=z+j}, {name="air"})
+			minetest.remove_node({x=x+i, y=y+2, z=z+j})
 		end
 	end
 	for i = -2,2,4 do
 		for j = 0,2 do
 			for k = -2,2,4 do
-				minetest.add_node({x=x+i, y=y+j, z=z+k}, {name="air"})
+				minetest.remove_node({x=x+i, y=y+j, z=z+k})
 			end
 		end
 	end
 	for i = -1,1 do
 		for j = -1,1 do
-			minetest.add_node({x=x+i, y=y+4, z=z+j}, {name="air"})
+			minetest.remove_node({x=x+i, y=y+4, z=z+j})
 		end
 	end
 end
