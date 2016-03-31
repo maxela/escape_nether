@@ -128,7 +128,7 @@ end
 
 escape_nether.is_portal_builder = function(user, x, y, z)
 	local meta = minetest.get_meta({x=x, y=y-1, z=z})
-	local result = (meta:get_string("builder") == user:get_player_name())
+	local result = meta:get_string("builder") == user:get_player_name()
 	escape_nether.check_error = result and 0 or 4
 	return result
 end
@@ -136,6 +136,7 @@ end
 escape_nether.set_portal_builder = function (user, x, y, z)
 	local meta = minetest.get_meta({x=x, y=y-1, z=z})
 	meta:set_string("builder", user:get_player_name())
+	meta:set_string("infotext", "This portal was built by " .. user:get_player_name())
 end
 
 escape_nether.check_portal = function(x, y, z)
